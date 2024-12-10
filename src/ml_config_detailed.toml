@@ -1,0 +1,154 @@
+
+
+nb_folds = 10 #Number of folds for cross-validation
+# nb_jobs = 10
+
+
+#Model parameters
+
+# https://scikit-learn.org/stable/modules/multiclass.html
+
+# https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html
+# https://stats.stackexchange.com/questions/303998/tuning-adaboost
+[AB_PARAMS]
+# n_estimators=[10, 50, 100, 250, 500, 600, 1000]
+learning_rate=[0.001, 0.01, 0.1, 1.0, 10.0]
+
+# https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
+# https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/
+[GB_PARAMS]
+max_depth=[1, 2, 3, 4, 5, 6, 7, 10, 20, 50]
+
+[GNB_PARAMS]
+# nothing
+
+[KNN_PARAMS]
+n_neighbors=[1, 5, 10, 50]
+#weights=['uniform', 'distance']
+
+# MLP_PARAMS = {'max_iter':(1000,)} #{'max_iter':(1000,), 'hidden_layer_sizes':((50,50),)}
+[MLP_PARAMS]
+#max_iter=[1000]
+#hidden_layer_sizes=[50,50]
+
+[LR_PARAMS]
+# saga usage is ok because data is scaled cf https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
+solver=["saga"]
+# C: Inverse of regularization strength; must be a positive float.
+C=[0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]
+
+[LSVC_PARAMS]
+# gamma=[0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]
+# C=[0.1, 1.0, 10.0, 100.0, 1000.0]
+# C: Inverse of regularization strength; must be a positive float.
+C=[0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]
+max_iter=[1000]
+
+[LSVR_PARAMS]
+# gamma=[0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]
+# C=[0.1, 1.0, 10.0, 100.0, 1000.0]
+# C: Inverse of regularization strength; must be a positive float.
+C=[0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]
+max_iter=[1000]
+
+
+# https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
+
+# Stopping criteria are max_depth, min_samples_split, and min_samples_leaf, while pruning criteria are min_weight_fraction_leaf and min_impurity_decrease (see https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680).
+# We use stopping parameters and no pruning ones (see https://stats.stackexchange.com/questions/443548/random-forest-pruning-vs-stopping-criteria/445221 which cites "Classification and regression tress" by Breiman).
+
+# min_samples_split vs min_samples_leaf: https://stackoverflow.com/questions/46480457/difference-between-min-samples-split-and-min-samples-leaf-in-sklearn-decisiontre
+
+# https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680
+# Example of GridSearchCV on RandomForest:
+# * https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74.
+# * https://stackoverflow.com/questions/36107820/how-to-tune-parameters-in-random-forest-using-scikit-learn
+# * https://towardsdatascience.com/optimizing-hyperparameters-in-random-forest-classification-ec7741f9d3f6 (use Google cache)
+
+[RFC_PARAMS]
+n_estimators=[10, 100, 500]#, 500, 1000]
+criterion=["gini", "entropy"]
+max_depth = [2, 5, 10, 15, 20]# 25, 30]
+min_samples_split=[2, 5, 10, 50]#, 100]
+
+[RFR_PARAMS]
+n_estimators=[100]
+criterion=["mse", "mae"]
+max_depth = [5, 10, 15, 25, 30]
+min_samples_split=[2, 5, 10, 50, 100]
+
+# https://towardsdatascience.com/the-basics-logistic-regression-and-regularization-828b0d2d206c
+# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html#sklearn.linear_model.SGDClassifier
+[SGD_LR_PARAMS]
+loss=["log"]
+# alpha: Constant that multiplies the regularization term. The higher the value, the stronger the regularization.
+alpha=[0.00000001, 0.0000001, 0.000001, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0]
+#penalty=['l1', 'l2', 'elasticnet']
+#tol=[1e-3]
+
+[SGD_SV_PARAMS]
+loss=["hinge"]
+# alpha=[0.000001, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0] # ref
+# alpha: Constant that multiplies the regularization term. The higher the value, the stronger the regularization.
+alpha=[0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]
+#penalty=['l1', 'l2', 'elasticnet']
+#tol=[1e-3]
+
+# DO NOT USE (because libsvm)
+[SVC_PARAMS]
+# gamma=[0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]
+# C=[0.1, 1.0, 10.0, 100.0, 1000.0]
+# C=[0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, 10000000.0]
+# C: Inverse of regularization strength; must be a positive float.
+C=[0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]
+
+# DO NOT USE (because libsvm)
+[SVR_PARAMS]
+# gamma=[0.00001, 0.0001, 0.001, 0.01, 0.1, 1.0]
+# C=[0.1, 1.0, 10.0, 100.0, 1000.0]
+# C: Inverse of regularization strength; must be a positive float.
+C=[0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0]
+
+# We do not use any stopping parameters and instead use only ccp_alpha here: https://stats.stackexchange.com/questions/443548/random-forest-pruning-vs-stopping-criteria/445221 which cites "Classification and regression tress" by Breiman
+# See also: https://www.kaggle.com/arunmohan003/pruning-decision-trees-tutorial
+[TRE_PARAMS]
+# criterion=["gini", "entropy"]
+# max_depth=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, None]
+max_depth=[2, 3, 4, 5, 10, 20, 30, 40]
+# max_depth=[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+# max_features=['auto', 'sqrt', 'log2']
+min_samples_split=[2, 5, 10, 50, 100, 200]
+min_samples_leaf=[1, 10, 50, 100]
+# Appropriate ccp_alpha values can be computed using cost_complexity_pruning_path.
+# But this cannot be easily integrated into GridSearchCV.
+#ccp_alpha=[0.0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1]
+
+[XG_PARAMS]
+# https://www.kaggle.com/stuarthallows/using-xgboost-with-scikit-learn
+colsample_bytree=[0.7,0.8,0.9,1.0]
+gamma=[0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+learning_rate=[0.03,0.13,0.23,0.33]
+#max_depth=[2,3,4,5,6]
+#n_estimators=[100,150]
+subsample=[0.6,0.7,0.8,0.9,1.0]
+
+###Machine Learning Methods in Dictionnary
+#DO NOT MODIFY
+#METHOD = dict(ada='AdaBoost', gbc='Gradient Boosting', gnb='Gaussian Naive Bayes', knn='K-Nearest Neighbor', mlp='Multilayer Perceptron', rfc='Random Forest', sgd='Stochastic Gradient Descent', svc='Support Vector', tre='Decision Tree')
+[METHOD]
+ab='AdaBoost'
+gb='Gradient Boosting'
+gnb='Gaussian Naive Bayes'
+knn='K-Nearest Neighbor'
+lr='Logistic Regression'
+lsvc='Support Vector (liblinear)'
+mlp='Multilayer Perceptron'
+rf='Random Forest'
+sgd-lr='Logistic Regression (SGD)'
+sgd-sv='Support Vector (SGD)'
+svc='Support Vector (libsvm)'
+svr='Support Vector (libsvm)'
+tre='Decision Tree'
+
+
+

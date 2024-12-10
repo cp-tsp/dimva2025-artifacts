@@ -1,0 +1,135 @@
+{
+  "netflowv5b": [
+    "packet_nb",
+    "a_l3_payload_size_oresp_total",
+    "tcp_flags",
+    "duration"
+  ],
+  "netflowv5e": [
+    "packet_nb",
+    "a_l3_payload_size_oresp_total",
+    "a_l3_payload_size_oresp_mean",
+    "tcp_flags",
+    "duration"
+  ],
+  "netflowv9b": [
+    "packet_nb_orig",
+    "packet_nb_resp",
+    "a_l3_payload_size_orig_total",
+    "a_l3_payload_size_resp_total",
+    "a_l3_payload_size_orig_min",
+    "a_l3_payload_size_orig_max",
+    "tcp_flags",
+    "duration"
+  ],
+  "netflowv9e": [
+    "packet_nb_orig",
+    "packet_nb_resp",
+    "packet_nb",
+    "a_l3_payload_size_oresp_total",
+    "a_l3_payload_size_orig_total",
+    "a_l3_payload_size_resp_total",
+    "a_l3_payload_size_orig_min",
+    "a_l3_payload_size_orig_max",
+    "a_l3_payload_size_oresp_mean",
+    "a_l3_payload_size_orig_mean",
+    "a_l3_payload_size_resp_mean",
+    "a_resp_orig_l3_packet_nb_ratio",
+    "a_resp_orig_l3_payload_size_ratio",
+    "tcp_flags",
+    "duration"
+  ],
+  "netflowratio": [
+    "a_resp_orig_l3_packet_nb_ratio",
+    "a_resp_orig_l3_payload_size_ratio",
+    "duration"
+  ],
+  "netflowv5b_no_duration": [
+    "packet_nb",
+    "tcp_flags",
+    "a_l3_payload_size_oresp_total"
+  ],
+  "netflowv5e_no_duration": [
+    "packet_nb",
+    "tcp_flags",
+    "a_l3_payload_size_oresp_total",
+    "a_l3_payload_size_oresp_mean"
+  ],
+  "netflowv9b_no_duration": [
+    "packet_nb_orig",
+    "packet_nb_resp",
+    "tcp_flags",
+    "a_l3_payload_size_orig_total",
+    "a_l3_payload_size_resp_total",
+    "a_l3_payload_size_orig_min",
+    "a_l3_payload_size_orig_max"
+  ],
+  "netflowv9e_no_duration": [
+    "tcp_flags",
+    "packet_nb",
+    "packet_nb_orig",
+    "packet_nb_resp",
+    "a_l3_payload_size_oresp_total",
+    "a_l3_payload_size_orig_total",
+    "a_l3_payload_size_resp_total",
+    "a_l3_payload_size_orig_min",
+    "a_l3_payload_size_orig_max",
+    "a_l3_payload_size_oresp_mean",
+    "a_l3_payload_size_orig_mean",
+    "a_l3_payload_size_resp_mean",
+    "a_resp_orig_l3_packet_nb_ratio",
+    "a_resp_orig_l3_payload_size_ratio"
+  ],
+  "netflowratio_no_duration": [
+    "a_resp_orig_l3_packet_nb_ratio",
+    "a_resp_orig_l3_payload_size_ratio"
+  ],
+  "selected-features": [
+    "packet_nb",
+    "a_l3_payload_size_orig_min",
+    "a_l3_payload_size_orig_max",
+    "a_l3_payload_size_oresp_mean",
+    "a_l3_payload_size_stddev"
+  ],
+  "selected-features2": [
+    "a_l3_payload_size_orig_total",
+    "a_l3_payload_size_resp_total",
+    "a_l3_payload_size_orig_max",
+    "a_l3_payload_size_stddev"
+  ],
+  "selected-features3": [
+    "a_l3_payload_size_stddev",
+    "a_l3_payload_size_orig_max",
+    "a_l3_payload_size_resp_mean"
+  ],
+  "selected-features4": [
+    "a_l3_payload_size_orig_max",
+    "a_l3_payload_size_orig_min",
+    "a_l3_payload_size_stddev",
+    "a_resp_orig_l3_packet_nb_ratio",
+    "a_l3_payload_size_nf_3",
+    "a_l3_payload_size_resp_mean"
+  ],
+  "10_payload_sizes": [
+    "l4_payload_size_nf_0",
+    "l4_payload_size_nf_1",
+    "l4_payload_size_nf_2",
+    "l4_payload_size_nf_3",
+    "l4_payload_size_nf_4",
+    "l4_payload_size_nf_5",
+    "l4_payload_size_nf_6",
+    "l4_payload_size_nf_7",
+    "l4_payload_size_nf_8",
+    "l4_payload_size_nf_9"
+  ],
+  "ramos": [
+    "ip_protocol",
+    "service",
+    "history",
+    "a_ip_packet_size_orig_total",
+    "a_l4_payload_size_orig_total",
+    "a_l4_payload_size_resp_total",
+    "packet_nb_orig",
+    "packet_nb_resp"
+  ]
+}
